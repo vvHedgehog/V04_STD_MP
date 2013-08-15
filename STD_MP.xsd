@@ -341,53 +341,22 @@
 									<xs:documentation>Уточнение границ</xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
-									<xs:sequence>
-										<xs:choice>
-											<xs:element name="ExistParcel" type="tExistParcel">
-												<xs:annotation>
-													<xs:documentation>Сведения об уточняемом участке, не являющемся единым землепользованием, и его частях</xs:documentation>
-												</xs:annotation>
-											</xs:element>
-											<xs:element name="ExistEZ">
-												<xs:annotation>
-													<xs:documentation>Сведения об уточняемом едином землепользовании и его частях</xs:documentation>
-												</xs:annotation>
-												<xs:complexType>
-													<xs:sequence>
-														<xs:element name="ExistEZParcels" type="tExistEZParcel">
-															<xs:annotation>
-																<xs:documentation>Единое землепользование</xs:documentation>
-															</xs:annotation>
-														</xs:element>
-														<xs:element name="ExistEZEntryParcels" minOccurs="0">
-															<xs:annotation>
-																<xs:documentation>Сведения об уточняемых входящих в ЕЗ участках</xs:documentation>
-															</xs:annotation>
-															<xs:complexType>
-																<xs:sequence>
-																	<xs:element name="ExistEZEntryParcel" type="tExistEZEntryParcel" maxOccurs="unbounded">
-																		<xs:annotation>
-																			<xs:documentation>Сведения об уточняемом входящем в ЕЗ участке</xs:documentation>
-																		</xs:annotation>
-																	</xs:element>
-																</xs:sequence>
-															</xs:complexType>
-														</xs:element>
-													</xs:sequence>
-												</xs:complexType>
-											</xs:element>
-										</xs:choice>
-										<xs:element name="SpecifyRelatedParcel" minOccurs="0" maxOccurs="unbounded">
-											<xs:annotation>
-												<xs:documentation>Уточнение границ смежных участков</xs:documentation>
-											</xs:annotation>
-											<xs:complexType>
-												<xs:complexContent>
-													<xs:extension base="tSpecifyRelatedParcel"/>
-												</xs:complexContent>
-											</xs:complexType>
-										</xs:element>
-									</xs:sequence>
+									<xs:complexContent>
+										<xs:extension base="tCustomSpecifyParcel">
+											<xs:sequence>
+												<xs:element name="SpecifyRelatedParcel" minOccurs="0" maxOccurs="unbounded">
+													<xs:annotation>
+														<xs:documentation>Уточнение границ смежных участков</xs:documentation>
+													</xs:annotation>
+													<xs:complexType>
+														<xs:complexContent>
+															<xs:extension base="tSpecifyRelatedParcel"/>
+														</xs:complexContent>
+													</xs:complexType>
+												</xs:element>
+											</xs:sequence>
+										</xs:extension>
+									</xs:complexContent>
 								</xs:complexType>
 							</xs:element>
 							<xs:element name="NewSubParcel" type="tNewSubParcel" maxOccurs="unbounded">
@@ -395,47 +364,10 @@
 									<xs:documentation>Сведения об образуемых частях</xs:documentation>
 								</xs:annotation>
 							</xs:element>
-							<xs:element name="SpecifyParcelsApproximal" maxOccurs="unbounded">
+							<xs:element name="SpecifyParcelsApproximal" maxOccurs="unbounded" type="tCustomSpecifyParcel">
 								<xs:annotation>
 									<xs:documentation>Уточнение границ нескольких смежных земельных участков</xs:documentation>
 								</xs:annotation>
-								<xs:complexType>
-									<xs:choice>
-										<xs:element name="ExistParcel" type="tExistParcel">
-											<xs:annotation>
-												<xs:documentation>Сведения об уточняемом участке, не являющемся единым землепользованием, и его частях</xs:documentation>
-											</xs:annotation>
-										</xs:element>
-										<xs:element name="ExistEZ">
-											<xs:annotation>
-												<xs:documentation>Сведения об уточняемом едином землепользовании и его частях</xs:documentation>
-											</xs:annotation>
-											<xs:complexType>
-												<xs:sequence>
-													<xs:element name="ExistEZParcels" type="tExistEZParcel">
-														<xs:annotation>
-															<xs:documentation>Единое землепользование</xs:documentation>
-														</xs:annotation>
-													</xs:element>
-													<xs:element name="ExistEZEntryParcels" minOccurs="0" maxOccurs="unbounded">
-														<xs:annotation>
-															<xs:documentation>Сведения об уточняемых входящих в ЕЗ участках</xs:documentation>
-														</xs:annotation>
-														<xs:complexType>
-															<xs:sequence>
-																<xs:element name="ExistEZEntryParcel" type="tExistEZEntryParcel">
-																	<xs:annotation>
-																		<xs:documentation>Сведения об уточняемом входящем в ЕЗ участке</xs:documentation>
-																	</xs:annotation>
-																</xs:element>
-															</xs:sequence>
-														</xs:complexType>
-													</xs:element>
-												</xs:sequence>
-											</xs:complexType>
-										</xs:element>
-									</xs:choice>
-								</xs:complexType>
 							</xs:element>
 						</xs:choice>
 					</xs:complexType>
@@ -917,7 +849,7 @@
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:extension base="tAddress">
-              <!--minOccurs="0" перемещён из sequence во вложенный элемент-->
+							<!--minOccurs="0" перемещён из sequence во вложенный элемент-->
 							<xs:sequence>
 								<xs:element name="Document" type="tDocument" minOccurs="0">
 									<xs:annotation>
@@ -2712,7 +2644,7 @@
 		<xs:annotation>
 			<xs:documentation>Наименование категории земель</xs:documentation>
 		</xs:annotation>
-    <!--minOccurs="0" перемещён из sequence во вложенный элемент-->
+		<!--minOccurs="0" перемещён из sequence во вложенный элемент-->
 		<xs:sequence>
 			<xs:element name="DocCategory" type="tDocument" minOccurs="0">
 				<xs:annotation>
@@ -2730,7 +2662,7 @@
 		<xs:annotation>
 			<xs:documentation>Вид использования ЗУ</xs:documentation>
 		</xs:annotation>
-    <!--minOccurs="0" перемещён из sequence во вложенный элемент-->
+		<!--minOccurs="0" перемещён из sequence во вложенный элемент-->
 		<xs:sequence>
 			<xs:element name="DocUtilization" type="tDocument" minOccurs="0">
 				<xs:annotation>
@@ -2961,7 +2893,7 @@
 					<xs:documentation>Ребро </xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
-          <!--у sequence убрано minOccurs="0", так как этот признак есть у всех вложенных элементов-->
+					<!--у sequence убрано minOccurs="0", так как этот признак есть у всех вложенных элементов-->
 					<xs:sequence>
 						<xs:element name="Length" minOccurs="0">
 							<xs:annotation>
@@ -3106,4 +3038,47 @@
 			<xs:enumeration value="Окружность"/>
 		</xs:restriction>
 	</xs:simpleType>
+
+	<xs:complexType name="tCustomSpecifyParcel">
+		<xs:annotation>
+			<xs:documentation>Проект (24/07/13), предварительно одобрен разработчиками ФКЦ Земля: http://forum-rosreestr.ru/forum25/topic298/ </xs:documentation>
+			<xs:documentation>Уточнение границы одного ЗУ (являющимся либо ЕЗ либо "обычным" участком)</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element name="ExistParcel" type="tExistParcel">
+				<xs:annotation>
+					<xs:documentation>Сведения об уточняемом участке, не являющемся единым землепользованием, и его частях</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ExistEZ">
+				<xs:annotation>
+					<xs:documentation>Сведения об уточняемом едином землепользовании и его частях</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ExistEZParcels" type="tExistEZParcel">
+							<xs:annotation>
+								<xs:documentation>Единое землепользование</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="ExistEZEntryParcels" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Сведения об уточняемых входящих в ЕЗ участках</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="ExistEZEntryParcel" type="tExistEZEntryParcel" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Сведения об уточняемом входящем в ЕЗ участке</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+
 </xs:schema>
