@@ -499,16 +499,10 @@
 											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="CadastralNumber">
+													<xs:element name="CadastralNumber" type="tZUCadastralNumber">
 														<xs:annotation>
 															<xs:documentation>Кадастровый номер земельного участка</xs:documentation>
 														</xs:annotation>
-														<xs:simpleType>
-															<xs:restriction base="xs:string">
-																<xs:maxLength value="40"/>
-																<xs:pattern value="\d+:\d+:\d+:\d+"/>
-															</xs:restriction>
-														</xs:simpleType>
 													</xs:element>
 													<xs:element name="CadastralNumber_OtherNumber" type="xs:string">
 														<xs:annotation>
@@ -538,16 +532,10 @@
 											</xs:annotation>
 											<xs:complexType>
 												<xs:sequence>
-													<xs:element name="CadastralNumber">
+													<xs:element name="CadastralNumber" type="tZUCadastralNumber">
 														<xs:annotation>
 															<xs:documentation>Кадастровый номер земельного участка</xs:documentation>
 														</xs:annotation>
-														<xs:simpleType>
-															<xs:restriction base="xs:string">
-																<xs:maxLength value="40"/>
-																<xs:pattern value="\d+:\d+:\d+:\d+"/>
-															</xs:restriction>
-														</xs:simpleType>
 													</xs:element>
 													<xs:element name="Number_Record" type="xs:string">
 														<xs:annotation>
@@ -723,17 +711,10 @@
 			<xs:documentation>Описание образуемого земельного участка (ЧЗУ)</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="CadastralBlock">
+			<xs:element name="CadastralBlock" type="tCadastralBlock">
 				<xs:annotation>
 					<xs:documentation>Номер кадастрового квартала</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="13"/>
-						<xs:minLength value="12"/>
-						<xs:pattern value="\d+:\d+:\d+"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Prev_CadastralNumbers" minOccurs="0">
 				<xs:annotation>
@@ -741,16 +722,10 @@
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="CadastralNumber" maxOccurs="unbounded">
+						<xs:element name="CadastralNumber" type="tZUCadastralNumber" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Кадастровый номер</xs:documentation>
 							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:maxLength value="40"/>
-									<xs:pattern value="\d+:\d+:\d+:\d+"/>
-								</xs:restriction>
-							</xs:simpleType>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
@@ -766,16 +741,10 @@
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="CadastralNumber" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="CadastralNumber" type="tOKSCadastralNumber" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Кадастровый номер</xs:documentation>
 							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:maxLength value="40"/>
-									<xs:pattern value="\d+:\d+:\d+:\d+"/>
-								</xs:restriction>
-							</xs:simpleType>
 						</xs:element>
 						<xs:element name="Number" type="xs:string" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
@@ -931,17 +900,10 @@
 			<xs:documentation>Описание измененного земельного участка (ЧЗУ)</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="CadastralBlock">
+			<xs:element name="CadastralBlock" type="tCadastralBlock">
 				<xs:annotation>
 					<xs:documentation>Номер кадастрового квартала</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="13"/>
-						<xs:minLength value="12"/>
-						<xs:pattern value="\d+:\d+:\d+"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Providing_Pass_CadastralNumbers" type="tProviding_Pass_CadastralNumbers" minOccurs="0">
 				<xs:annotation>
@@ -954,16 +916,10 @@
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="CadastralNumber" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="CadastralNumber" type="tOKSCadastralNumber" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Кадастровый номер</xs:documentation>
 							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:maxLength value="40"/>
-									<xs:pattern value="\d+:\d+:\d+:\d+"/>
-								</xs:restriction>
-							</xs:simpleType>
 						</xs:element>
 						<xs:element name="Number" type="xs:string" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
@@ -1017,16 +973,10 @@
 												</xs:restriction>
 											</xs:simpleType>
 										</xs:attribute>
-										<xs:attribute name="CadastralNumber_EntryParcel">
+										<xs:attribute name="CadastralNumber_EntryParcel" type="tZUCadastralNumber">
 											<xs:annotation>
 												<xs:documentation>Кадастровый номер входящего в состав ЕЗ участка, в случае, если он сохраняется в измененных границах</xs:documentation>
 											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:maxLength value="40"/>
-													<xs:pattern value="\d+:\d+:\d+:\d+"/>
-												</xs:restriction>
-											</xs:simpleType>
 										</xs:attribute>
 									</xs:extension>
 								</xs:complexContent>
@@ -1132,16 +1082,10 @@
 								<xs:documentation>Исключаемый входящий участок</xs:documentation>
 							</xs:annotation>
 							<xs:complexType>
-								<xs:attribute name="CadastralNumber" use="required">
+								<xs:attribute name="CadastralNumber" type="tZUCadastralNumber" use="required">
 									<xs:annotation>
 										<xs:documentation>Кадастровый номер</xs:documentation>
 									</xs:annotation>
-									<xs:simpleType>
-										<xs:restriction base="xs:string">
-											<xs:maxLength value="40"/>
-											<xs:pattern value="\d+:\d+:\d+:\d+"/>
-										</xs:restriction>
-									</xs:simpleType>
 								</xs:attribute>
 							</xs:complexType>
 						</xs:element>
@@ -1154,16 +1098,10 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="CadastralNumber" use="required">
+		<xs:attribute name="CadastralNumber" type="tZUCadastralNumber" use="required">
 			<xs:annotation>
 				<xs:documentation>Кадастровый номер</xs:documentation>
 			</xs:annotation>
-			<xs:simpleType>
-				<xs:restriction base="xs:string">
-					<xs:maxLength value="40"/>
-					<xs:pattern value="\d+:\d+:\d+:\d+"/>
-				</xs:restriction>
-			</xs:simpleType>
 		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="tExistParcel">
@@ -1171,17 +1109,10 @@
 			<xs:documentation>Описание уточняемого земельного участка (ЧЗУ), не являющегося единым землепользованием</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="CadastralBlock">
+			<xs:element name="CadastralBlock" type="tCadastralBlock">
 				<xs:annotation>
 					<xs:documentation>Номер кадастрового квартала</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="13"/>
-						<xs:minLength value="12"/>
-						<xs:pattern value="\d+:\d+:\d+"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Inner_CadastralNumbers" minOccurs="0">
 				<xs:annotation>
@@ -1189,16 +1120,10 @@
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="CadastralNumber" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="CadastralNumber" type="tOKSCadastralNumber" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Кадастровый номер</xs:documentation>
 							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:maxLength value="40"/>
-									<xs:pattern value="\d+:\d+:\d+:\d+"/>
-								</xs:restriction>
-							</xs:simpleType>
 						</xs:element>
 						<xs:element name="Number" type="xs:string" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
@@ -1394,16 +1319,10 @@
 			</xs:element>
 			<xs:element ref="RelatedParcels" minOccurs="0"/>
 		</xs:sequence>
-		<xs:attribute name="CadastralNumber" use="required">
+		<xs:attribute name="CadastralNumber" type="tZUCadastralNumber" use="required">
 			<xs:annotation>
 				<xs:documentation>Кадастровый номер</xs:documentation>
 			</xs:annotation>
-			<xs:simpleType>
-				<xs:restriction base="xs:string">
-					<xs:maxLength value="40"/>
-					<xs:pattern value="\d+:\d+:\d+:\d+"/>
-				</xs:restriction>
-			</xs:simpleType>
 		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="tExistEZParcel">
@@ -1411,17 +1330,10 @@
 			<xs:documentation>Описание уточняемого единого землепользования и его частей</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="CadastralBlock">
+			<xs:element name="CadastralBlock" type="tCadastralBlock">
 				<xs:annotation>
 					<xs:documentation>Номер кадастрового квартала</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="13"/>
-						<xs:minLength value="12"/>
-						<xs:pattern value="\d+:\d+:\d+"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Inner_CadastralNumbers" minOccurs="0">
 				<xs:annotation>
@@ -1429,16 +1341,10 @@
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="CadastralNumber" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="CadastralNumber" type="tOKSCadastralNumber" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Кадастровый номер</xs:documentation>
 							</xs:annotation>
-							<xs:simpleType>
-								<xs:restriction base="xs:string">
-									<xs:maxLength value="40"/>
-									<xs:pattern value="\d+:\d+:\d+:\d+"/>
-								</xs:restriction>
-							</xs:simpleType>
 						</xs:element>
 						<xs:element name="Number" type="xs:string" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
@@ -1613,16 +1519,10 @@
 														<xs:documentation>Сведения о существующих обособленных и условных участках, включаемых в состав ЕЗ</xs:documentation>
 													</xs:annotation>
 													<xs:complexType>
-														<xs:attribute name="CadastralNumber" use="required">
+														<xs:attribute name="CadastralNumber" type="tZUCadastralNumber" use="required">
 															<xs:annotation>
 																<xs:documentation>Кадастровый номер</xs:documentation>
 															</xs:annotation>
-															<xs:simpleType>
-																<xs:restriction base="xs:string">
-																	<xs:maxLength value="40"/>
-																	<xs:pattern value="\d+:\d+:\d+:\d+"/>
-																</xs:restriction>
-															</xs:simpleType>
 														</xs:attribute>
 													</xs:complexType>
 												</xs:element>
@@ -1648,16 +1548,10 @@
 											<xs:documentation>Исключаемый входящий участок</xs:documentation>
 										</xs:annotation>
 										<xs:complexType>
-											<xs:attribute name="CadastralNumber" use="required">
+											<xs:attribute name="CadastralNumber" type="tZUCadastralNumber" use="required">
 												<xs:annotation>
 													<xs:documentation>Кадастровый номер</xs:documentation>
 												</xs:annotation>
-												<xs:simpleType>
-													<xs:restriction base="xs:string">
-														<xs:maxLength value="40"/>
-														<xs:pattern value="\d+:\d+:\d+:\d+"/>
-													</xs:restriction>
-												</xs:simpleType>
 											</xs:attribute>
 										</xs:complexType>
 									</xs:element>
@@ -1699,16 +1593,10 @@
 			</xs:element>
 			<xs:element ref="RelatedParcels" minOccurs="0"/>
 		</xs:sequence>
-		<xs:attribute name="CadastralNumber" use="required">
+		<xs:attribute name="CadastralNumber" type="tZUCadastralNumber" use="required">
 			<xs:annotation>
 				<xs:documentation>Кадастровый номер</xs:documentation>
 			</xs:annotation>
-			<xs:simpleType>
-				<xs:restriction base="xs:string">
-					<xs:maxLength value="40"/>
-					<xs:pattern value="\d+:\d+:\d+:\d+"/>
-				</xs:restriction>
-			</xs:simpleType>
 		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="tNewEZEntryParcel">
@@ -1791,16 +1679,10 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="CadastralNumber" use="required">
+		<xs:attribute name="CadastralNumber" type="tZUCadastralNumber" use="required">
 			<xs:annotation>
 				<xs:documentation>Кадастровый номер</xs:documentation>
 			</xs:annotation>
-			<xs:simpleType>
-				<xs:restriction base="xs:string">
-					<xs:maxLength value="40"/>
-					<xs:pattern value="\d+:\d+:\d+:\d+"/>
-				</xs:restriction>
-			</xs:simpleType>
 		</xs:attribute>
 	</xs:complexType>
 	<xs:complexType name="tNewSubParcel">
@@ -1808,16 +1690,10 @@
 			<xs:documentation>Описание образуемой ЧЗУ</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="CadastralNumber_Parcel">
+			<xs:element name="CadastralNumber_Parcel" type="tZUCadastralNumber">
 				<xs:annotation>
 					<xs:documentation>Кадастровый номер земельного участка</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="40"/>
-						<xs:pattern value="\d+:\d+:\d+:\d+"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Area" type="tArea">
 				<xs:annotation>
@@ -2189,16 +2065,10 @@
 				</xs:element>
 			</xs:sequence>
 		</xs:sequence>
-		<xs:attribute name="CadastralNumber" use="required">
+		<xs:attribute name="CadastralNumber" type="tZUCadastralNumber" use="required">
 			<xs:annotation>
 				<xs:documentation>Кадастровый номер</xs:documentation>
 			</xs:annotation>
-			<xs:simpleType>
-				<xs:restriction base="xs:string">
-					<xs:maxLength value="40"/>
-					<xs:pattern value="\d+:\d+:\d+:\d+"/>
-				</xs:restriction>
-			</xs:simpleType>
 		</xs:attribute>
 		<xs:attribute name="Number_Record">
 			<xs:annotation>
@@ -2216,16 +2086,10 @@
 			<xs:documentation>Сведения о ЗУ, посредством которых обеспечивается доступ</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="CadastralNumber" minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="CadastralNumber" type="tZUCadastralNumber" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Кадастровый номер</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="40"/>
-						<xs:pattern value="\d+:\d+:\d+:\d+"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Definition" type="xs:string" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>
@@ -2669,16 +2533,10 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
-			<xs:element name="CadastralNumber_Restriction" minOccurs="0">
+			<xs:element name="CadastralNumber_Restriction" type="tZUCadastralNumber" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Кадастровый номер ЗУ, в пользу которого установлен сервитут</xs:documentation>
 				</xs:annotation>
-				<xs:simpleType>
-					<xs:restriction base="xs:string">
-						<xs:maxLength value="40"/>
-						<xs:pattern value="\d+:\d+:\d+:\d+"/>
-					</xs:restriction>
-				</xs:simpleType>
 			</xs:element>
 			<xs:element name="Documents" minOccurs="0">
 				<xs:annotation>
@@ -3051,5 +2909,37 @@
 				</xs:extension>
 			</xs:complexContent>
 	</xs:complexType>
+
+	<!-- Созданы типы для Номеров ЗУ, КК, и ОКС; в типах предусмотрена валидация по шаблону -->
+	<xs:simpleType name="tZUCadastralNumber">
+		<xs:annotation>
+			<xs:documentation>Кадастровый номер земельного участка</xs:documentation>
+		</xs:annotation>
+			<xs:restriction base="xs:string">
+				<xs:maxLength value="40"/>
+				<xs:pattern value="^\d{2}:\d{2}:\d{6,7}:\d{1,}"/>
+			</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="tCadastralBlock">
+		<xs:annotation>
+			<xs:documentation>Номер кадастрового квартала</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="13"/>
+			<xs:minLength value="12"/>
+			<xs:pattern value="^\d{2}:\d{2}:\d{6,7}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="tOKSCadastralNumber">
+		<xs:annotation>
+			<xs:documentation>Кадастровый номер объектов капитального строительства (здания, сооружения, объекты незавершенного строительства)</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="40"/>
+			<xs:pattern value="^\d{2}:\d{2}:\d{6,7}:\d{1,}"/>
+		</xs:restriction>
+	</xs:simpleType>
 
 </xs:schema>
