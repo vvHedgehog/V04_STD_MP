@@ -917,8 +917,9 @@
 				<xs:complexType>
 					<xs:complexContent>
 						<xs:extension base="tAddress">
-							<xs:sequence minOccurs="0">
-								<xs:element name="Document" type="tDocument">
+              <!--minOccurs="0" перемещён из sequence во вложенный элемент-->
+							<xs:sequence>
+								<xs:element name="Document" type="tDocument" minOccurs="0">
 									<xs:annotation>
 										<xs:documentation>Реквизиты акта органа государственной власти или органа местного самоуправления, уполномоченного присваивать адреса земельным участкам</xs:documentation>
 									</xs:annotation>
@@ -2210,7 +2211,8 @@
 					</xs:complexType>
 				</xs:element>
 			</xs:choice>
-			<xs:sequence minOccurs="0">
+			<!-- у sequence убрано minOccurs="0", т.к. оно есть во вложенном элементе -->
+			<xs:sequence>
 				<xs:element name="ExistSubParcels" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Описание границ существующих частей уточняемого смежного участка (в т.ч. многоконтурных частей)</xs:documentation>
@@ -2710,8 +2712,9 @@
 		<xs:annotation>
 			<xs:documentation>Наименование категории земель</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
-			<xs:element name="DocCategory" type="tDocument">
+    <!--minOccurs="0" перемещён из sequence во вложенный элемент-->
+		<xs:sequence>
+			<xs:element name="DocCategory" type="tDocument" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Реквизиты документа, удостоверяющего сведения о категории земель</xs:documentation>
 				</xs:annotation>
@@ -2727,8 +2730,9 @@
 		<xs:annotation>
 			<xs:documentation>Вид использования ЗУ</xs:documentation>
 		</xs:annotation>
-		<xs:sequence minOccurs="0">
-			<xs:element name="DocUtilization" type="tDocument">
+    <!--minOccurs="0" перемещён из sequence во вложенный элемент-->
+		<xs:sequence>
+			<xs:element name="DocUtilization" type="tDocument" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Реквизиты документа, удостоверяющего сведения об использовании ЗУ</xs:documentation>
 				</xs:annotation>
@@ -2913,7 +2917,8 @@
 		<xs:annotation>
 			<xs:documentation>Элемент контура</xs:documentation>
 		</xs:annotation>
-		<xs:sequence maxOccurs="unbounded">
+		<!-- у sequence убрано maxOccurs="unbounded", т.к. оно есть во вложенном элементе -->
+		<xs:sequence>
 			<xs:element name="Spelement_Unit" type="tSPELEMENT_UNIT_OLD_NEW" maxOccurs="unbounded">
 				<xs:annotation>
 					<xs:documentation>Часть элемента (точка)</xs:documentation>
@@ -2956,7 +2961,8 @@
 					<xs:documentation>Ребро </xs:documentation>
 				</xs:annotation>
 				<xs:complexType>
-					<xs:sequence minOccurs="0">
+          <!--у sequence убрано minOccurs="0", так как этот признак есть у всех вложенных элементов-->
+					<xs:sequence>
 						<xs:element name="Length" minOccurs="0">
 							<xs:annotation>
 								<xs:documentation>Горизонтальное проложение в метрах</xs:documentation>
