@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2011 rel. 2 (http://www.altova.com) by XMLSpy 2011 Professional Ed. Release 2, Installed for 10 users (FGUP FKC Zemlja) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<!--Классификатор видов использования земель-->
 	<xs:include schemaLocation="dUtilizations.xsd"/>
@@ -180,28 +179,11 @@
 															<xs:documentation>Полное наименование</xs:documentation>
 														</xs:annotation>
 													</xs:element>
-													<xs:element name="Agent">
+													<!--Вынесен тип tClientAgent, здесь он происпользован-->
+													<xs:element name="Agent" type="tClientAgent">
 														<xs:annotation>
 															<xs:documentation>Представитель</xs:documentation>
 														</xs:annotation>
-														<xs:complexType>
-															<xs:complexContent>
-																<xs:extension base="tFIO">
-																	<xs:sequence>
-																		<xs:element name="Appointment" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>Должность</xs:documentation>
-																			</xs:annotation>
-																			<xs:simpleType>
-																				<xs:restriction base="xs:string">
-																					<xs:maxLength value="255"/>
-																				</xs:restriction>
-																			</xs:simpleType>
-																		</xs:element>
-																	</xs:sequence>
-																</xs:extension>
-															</xs:complexContent>
-														</xs:complexType>
 													</xs:element>
 												</xs:sequence>
 											</xs:complexType>
@@ -222,28 +204,11 @@
 															<xs:documentation>Наименование страны регистрации (инкорпорации)</xs:documentation>
 														</xs:annotation>
 													</xs:element>
-													<xs:element name="Agent">
+													<!--Вынесен тип tClientAgent, здесь он происпользован-->
+													<xs:element name="Agent" type="tClientAgent">
 														<xs:annotation>
 															<xs:documentation>Представитель</xs:documentation>
 														</xs:annotation>
-														<xs:complexType>
-															<xs:complexContent>
-																<xs:extension base="tFIO">
-																	<xs:sequence>
-																		<xs:element name="Appointment" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>Должность</xs:documentation>
-																			</xs:annotation>
-																			<xs:simpleType>
-																				<xs:restriction base="xs:string">
-																					<xs:maxLength value="255"/>
-																				</xs:restriction>
-																			</xs:simpleType>
-																		</xs:element>
-																	</xs:sequence>
-																</xs:extension>
-															</xs:complexContent>
-														</xs:complexType>
 													</xs:element>
 												</xs:sequence>
 											</xs:complexType>
@@ -259,28 +224,11 @@
 															<xs:documentation>Полное наименование</xs:documentation>
 														</xs:annotation>
 													</xs:element>
-													<xs:element name="Agent">
+													<!--Вынесен тип tClientAgent, здесь он происпользован-->
+													<xs:element name="Agent" type="tClientAgent">
 														<xs:annotation>
 															<xs:documentation>Представитель</xs:documentation>
 														</xs:annotation>
-														<xs:complexType>
-															<xs:complexContent>
-																<xs:extension base="tFIO">
-																	<xs:sequence>
-																		<xs:element name="Appointment" minOccurs="0">
-																			<xs:annotation>
-																				<xs:documentation>Должность</xs:documentation>
-																			</xs:annotation>
-																			<xs:simpleType>
-																				<xs:restriction base="xs:string">
-																					<xs:maxLength value="255"/>
-																				</xs:restriction>
-																			</xs:simpleType>
-																		</xs:element>
-																	</xs:sequence>
-																</xs:extension>
-															</xs:complexContent>
-														</xs:complexType>
 													</xs:element>
 												</xs:sequence>
 											</xs:complexType>
@@ -3079,6 +3027,29 @@
 				</xs:complexType>
 			</xs:element>
 		</xs:choice>
+	</xs:complexType>
+
+	<!--Тип использован для одинаковых элементов Agent в элементах Client\Organization,  Client\Foreign_Organization, Client\Governance-->
+	<xs:complexType name="tClientAgent">
+		<xs:annotation>
+			<xs:documentation>Представитель</xs:documentation>
+		</xs:annotation>
+			<xs:complexContent>
+				<xs:extension base="tFIO">
+					<xs:sequence>
+						<xs:element name="Appointment" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Должность</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="255"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
 	</xs:complexType>
 
 </xs:schema>
