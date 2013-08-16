@@ -904,72 +904,10 @@
 								</xs:complexContent>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="InvariableSubParcel" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="InvariableSubParcel" type="tInvariableSubParcel" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Существующая (неизменяемая) часть участка</xs:documentation>
 							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="Area" type="tArea_without_Innccuracy">
-										<xs:annotation>
-											<xs:documentation>Площадь</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="Encumbrance" type="tEncumbrance">
-										<xs:annotation>
-											<xs:documentation>Характеристика части</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="Contours" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Контуры многоконтурной части</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="Contour" maxOccurs="unbounded">
-													<xs:annotation>
-														<xs:documentation>Контур многоконтурной части</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:sequence>
-															<xs:element name="Area" type="tArea_Contour">
-																<xs:annotation>
-																	<xs:documentation>Площадь контура части</xs:documentation>
-																</xs:annotation>
-															</xs:element>
-														</xs:sequence>
-														<xs:attribute name="Number" use="required">
-															<xs:annotation>
-																<xs:documentation>Обозначение или учетный номер контура части</xs:documentation>
-															</xs:annotation>
-															<xs:simpleType>
-																<xs:restriction base="xs:string">
-																	<xs:maxLength value="100"/>
-																</xs:restriction>
-															</xs:simpleType>
-														</xs:attribute>
-													</xs:complexType>
-												</xs:element>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
-								<xs:attribute name="Number_Record" use="required">
-									<xs:annotation>
-										<xs:documentation>Учетный номер части ЗУ</xs:documentation>
-									</xs:annotation>
-									<xs:simpleType>
-										<xs:restriction base="xs:positiveInteger">
-											<xs:totalDigits value="10"/>
-										</xs:restriction>
-									</xs:simpleType>
-								</xs:attribute>
-								<xs:attribute name="SubParcel_Realty" type="xs:boolean" use="required">
-									<xs:annotation>
-										<xs:documentation>Признак формирования ЧЗУ под ОН: 0- ЧЗУ не занята ОН, 1-ЧЗУ занята ОН</xs:documentation>
-									</xs:annotation>
-								</xs:attribute>
-							</xs:complexType>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
@@ -1075,72 +1013,10 @@
 								</xs:complexContent>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="InvariableSubParcel" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="InvariableSubParcel" type="tInvariableSubParcel" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Существующая (неизменяемая) часть участка</xs:documentation>
 							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="Area" type="tArea_without_Innccuracy">
-										<xs:annotation>
-											<xs:documentation>Площадь</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="Encumbrance" type="tEncumbrance">
-										<xs:annotation>
-											<xs:documentation>Характеристика части</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="Contours" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Контуры многоконтурной части</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="Contour" maxOccurs="unbounded">
-													<xs:annotation>
-														<xs:documentation>Контур многоконтурной части</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:sequence>
-															<xs:element name="Area" type="tArea_Contour">
-																<xs:annotation>
-																	<xs:documentation>Площадь контура части</xs:documentation>
-																</xs:annotation>
-															</xs:element>
-														</xs:sequence>
-														<xs:attribute name="Number" use="required">
-															<xs:annotation>
-																<xs:documentation>Обозначение или учетный номер контура части</xs:documentation>
-															</xs:annotation>
-															<xs:simpleType>
-																<xs:restriction base="xs:string">
-																	<xs:maxLength value="100"/>
-																</xs:restriction>
-															</xs:simpleType>
-														</xs:attribute>
-													</xs:complexType>
-												</xs:element>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
-								<xs:attribute name="Number_Record" use="required">
-									<xs:annotation>
-										<xs:documentation>Учетный номер части ЗУ</xs:documentation>
-									</xs:annotation>
-									<xs:simpleType>
-										<xs:restriction base="xs:positiveInteger">
-											<xs:totalDigits value="10"/>
-										</xs:restriction>
-									</xs:simpleType>
-								</xs:attribute>
-								<xs:attribute name="SubParcel_Realty" type="xs:boolean" use="required">
-									<xs:annotation>
-										<xs:documentation>Признак формирования ЧЗУ под ОН: 0- ЧЗУ не занята ОН, 1-ЧЗУ занята ОН</xs:documentation>
-									</xs:annotation>
-								</xs:attribute>
-							</xs:complexType>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
@@ -1263,72 +1139,10 @@
 								</xs:complexContent>
 							</xs:complexType>
 						</xs:element>
-						<xs:element name="InvariableSubParcel" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="InvariableSubParcel" type="tInvariableSubParcel" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Существующая (неизменяемая) часть участка</xs:documentation>
 							</xs:annotation>
-							<xs:complexType>
-								<xs:sequence>
-									<xs:element name="Area" type="tArea_without_Innccuracy">
-										<xs:annotation>
-											<xs:documentation>Площадь</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="Encumbrance" type="tEncumbrance">
-										<xs:annotation>
-											<xs:documentation>Характеристика части</xs:documentation>
-										</xs:annotation>
-									</xs:element>
-									<xs:element name="Contours" minOccurs="0">
-										<xs:annotation>
-											<xs:documentation>Контуры многоконтурной части</xs:documentation>
-										</xs:annotation>
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="Contour" maxOccurs="unbounded">
-													<xs:annotation>
-														<xs:documentation>Контур многоконтурной части</xs:documentation>
-													</xs:annotation>
-													<xs:complexType>
-														<xs:sequence>
-															<xs:element name="Area" type="tArea_Contour">
-																<xs:annotation>
-																	<xs:documentation>Площадь контура части</xs:documentation>
-																</xs:annotation>
-															</xs:element>
-														</xs:sequence>
-														<xs:attribute name="Number" use="required">
-															<xs:annotation>
-																<xs:documentation>Обозначение или учетный номер контура части</xs:documentation>
-															</xs:annotation>
-															<xs:simpleType>
-																<xs:restriction base="xs:string">
-																	<xs:maxLength value="100"/>
-																</xs:restriction>
-															</xs:simpleType>
-														</xs:attribute>
-													</xs:complexType>
-												</xs:element>
-											</xs:sequence>
-										</xs:complexType>
-									</xs:element>
-								</xs:sequence>
-								<xs:attribute name="Number_Record" use="required">
-									<xs:annotation>
-										<xs:documentation>Учетный номер части ЗУ</xs:documentation>
-									</xs:annotation>
-									<xs:simpleType>
-										<xs:restriction base="xs:positiveInteger">
-											<xs:totalDigits value="10"/>
-										</xs:restriction>
-									</xs:simpleType>
-								</xs:attribute>
-								<xs:attribute name="SubParcel_Realty" type="xs:boolean" use="required">
-									<xs:annotation>
-										<xs:documentation>Признак формирования ЧЗУ под ОН: 0- ЧЗУ не занята ОН, 1-ЧЗУ занята ОН</xs:documentation>
-									</xs:annotation>
-								</xs:attribute>
-							</xs:complexType>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
@@ -2832,5 +2646,71 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
-
+	
+	<!--Вынесен тип tInvariableSubParcel - Существующая (неизменяемая) часть участка, используется в нескольких местах-->
+	<xs:complexType name="tInvariableSubParcel">
+		<xs:annotation>
+			<xs:documentation>Существующая (неизменяемая) часть участка</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Area" type="tArea_without_Innccuracy">
+				<xs:annotation>
+					<xs:documentation>Площадь</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Encumbrance" type="tEncumbrance">
+				<xs:annotation>
+					<xs:documentation>Характеристика части</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Contours" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Контуры многоконтурной части</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Contour" maxOccurs="unbounded">
+							<xs:annotation>
+								<xs:documentation>Контур многоконтурной части</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Area" type="tArea_Contour">
+										<xs:annotation>
+											<xs:documentation>Площадь контура части</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+								<xs:attribute name="Number" use="required">
+									<xs:annotation>
+										<xs:documentation>Обозначение или учетный номер контура части</xs:documentation>
+									</xs:annotation>
+									<xs:simpleType>
+										<xs:restriction base="xs:string">
+											<xs:maxLength value="100"/>
+										</xs:restriction>
+									</xs:simpleType>
+								</xs:attribute>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="Number_Record" use="required">
+			<xs:annotation>
+				<xs:documentation>Учетный номер части ЗУ</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:positiveInteger">
+					<xs:totalDigits value="10"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="SubParcel_Realty" type="xs:boolean" use="required">
+			<xs:annotation>
+				<xs:documentation>Признак формирования ЧЗУ под ОН: false- ЧЗУ не занята ОН, 1-ЧЗУ занята ОН</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
 </xs:schema>
