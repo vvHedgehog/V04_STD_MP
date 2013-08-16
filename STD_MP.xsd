@@ -648,19 +648,10 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="Appendix" minOccurs="0">
+				<xs:element name="Appendix" type="tDocuments" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Приложения</xs:documentation>
 					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="Document" type="tDocument" maxOccurs="unbounded">
-								<xs:annotation>
-									<xs:documentation>Реквизиты документов</xs:documentation>
-								</xs:annotation>
-							</xs:element>
-						</xs:sequence>
-					</xs:complexType>
 				</xs:element>
 			</xs:sequence>
 		</xs:complexType>
