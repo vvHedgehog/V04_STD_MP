@@ -657,26 +657,10 @@
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="FormSubParcel" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="FormSubParcel" type="tFormSubParcel" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Образуемая часть участка</xs:documentation>
 							</xs:annotation>
-							<xs:complexType>
-								<xs:complexContent>
-									<xs:extension base="tSubParcel">
-										<xs:attribute name="Definition" use="required">
-											<xs:annotation>
-												<xs:documentation>Учетный номер или обозначение части ЗУ</xs:documentation>
-											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:maxLength value="50"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:attribute>
-									</xs:extension>
-								</xs:complexContent>
-							</xs:complexType>
 						</xs:element>
 					</xs:sequence>
 				</xs:complexType>
@@ -779,26 +763,10 @@
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="FormSubParcel" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="FormSubParcel" type="tFormSubParcel" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Образуемая часть участка</xs:documentation>
 							</xs:annotation>
-							<xs:complexType>
-								<xs:complexContent>
-									<xs:extension base="tSubParcel">
-										<xs:attribute name="Definition" use="required">
-											<xs:annotation>
-												<xs:documentation>Обозначение части ЗУ</xs:documentation>
-											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:maxLength value="50"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:attribute>
-									</xs:extension>
-								</xs:complexContent>
-							</xs:complexType>
 						</xs:element>
 						<xs:element name="ExistSubParcel" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
@@ -806,17 +774,7 @@
 							</xs:annotation>
 							<xs:complexType>
 								<xs:complexContent>
-									<xs:extension base="tSubParcel">
-										<xs:attribute name="Number_Record">
-											<xs:annotation>
-												<xs:documentation>Учетный номер части ЗУ</xs:documentation>
-											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:positiveInteger">
-													<xs:totalDigits value="10"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:attribute>
+									<xs:extension base="tExistSubParcel">
 										<xs:attribute name="CadastralNumber_EntryParcel" type="tZUCadastralNumber">
 											<xs:annotation>
 												<xs:documentation>Кадастровый номер входящего в состав ЕЗ участка, в случае, если он сохраняется в измененных границах</xs:documentation>
@@ -893,47 +851,15 @@
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="FormSubParcel" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="FormSubParcel" type="tFormSubParcel" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Образуемая часть участка</xs:documentation>
 							</xs:annotation>
-							<xs:complexType>
-								<xs:complexContent>
-									<xs:extension base="tSubParcel">
-										<xs:attribute name="Definition" use="required">
-											<xs:annotation>
-												<xs:documentation>Обозначение части ЗУ</xs:documentation>
-											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:maxLength value="50"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:attribute>
-									</xs:extension>
-								</xs:complexContent>
-							</xs:complexType>
 						</xs:element>
-						<xs:element name="ExistSubParcel" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="ExistSubParcel" type="tExistSubParcel" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Существующая (уточняемая, изменяемая)  часть участка</xs:documentation>
 							</xs:annotation>
-							<xs:complexType>
-								<xs:complexContent>
-									<xs:extension base="tSubParcel">
-										<xs:attribute name="Number_Record" use="required">
-											<xs:annotation>
-												<xs:documentation>Учетный номер части ЗУ</xs:documentation>
-											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:positiveInteger">
-													<xs:totalDigits value="10"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:attribute>
-									</xs:extension>
-								</xs:complexContent>
-							</xs:complexType>
 						</xs:element>
 						<xs:element name="InvariableSubParcel" type="tInvariableSubParcel" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
@@ -1019,47 +945,15 @@
 				</xs:annotation>
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="FormSubParcel" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="FormSubParcel" type="tFormSubParcel" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Образуемая часть участка</xs:documentation>
 							</xs:annotation>
-							<xs:complexType>
-								<xs:complexContent>
-									<xs:extension base="tSubParcel">
-										<xs:attribute name="Definition" use="required">
-											<xs:annotation>
-												<xs:documentation>Обозначение части ЗУ</xs:documentation>
-											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:string">
-													<xs:maxLength value="50"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:attribute>
-									</xs:extension>
-								</xs:complexContent>
-							</xs:complexType>
 						</xs:element>
-						<xs:element name="ExistSubParcel" minOccurs="0" maxOccurs="unbounded">
+						<xs:element name="ExistSubParcel" type="tExistSubParcel" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
 								<xs:documentation>Существующая (уточняемая, изменяемая)  часть участка</xs:documentation>
 							</xs:annotation>
-							<xs:complexType>
-								<xs:complexContent>
-									<xs:extension base="tSubParcel">
-										<xs:attribute name="Number_Record" use="required">
-											<xs:annotation>
-												<xs:documentation>Учетный номер части ЗУ</xs:documentation>
-											</xs:annotation>
-											<xs:simpleType>
-												<xs:restriction base="xs:positiveInteger">
-													<xs:totalDigits value="10"/>
-												</xs:restriction>
-											</xs:simpleType>
-										</xs:attribute>
-									</xs:extension>
-								</xs:complexContent>
-							</xs:complexType>
 						</xs:element>
 						<xs:element name="InvariableSubParcel" type="tInvariableSubParcel" minOccurs="0" maxOccurs="unbounded">
 							<xs:annotation>
@@ -2590,4 +2484,45 @@
 			</xs:attribute>
 	</xs:complexType>
 
+	<!--Вынесен тип tFormSubParcel -->
+	<xs:complexType name="tFormSubParcel">
+		<xs:annotation>
+			<xs:documentation>Образуемая часть участка</xs:documentation>
+		</xs:annotation>
+			<xs:complexContent>
+				<xs:extension base="tSubParcel">
+					<xs:attribute name="Definition" use="required">
+						<xs:annotation>
+							<xs:documentation>Обозначение части ЗУ</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:maxLength value="50"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:complexContent>
+	</xs:complexType>
+
+	<!--Вынесен тип tExistSubParcel -->
+	<xs:complexType name="tExistSubParcel">
+		<xs:annotation>
+			<xs:documentation>Существующая (уточняемая, изменяемая) часть участка</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="tSubParcel">
+				<xs:attribute name="Number_Record">
+					<xs:annotation>
+						<xs:documentation>Учетный номер части ЗУ</xs:documentation>
+					</xs:annotation>
+					<xs:simpleType>
+						<xs:restriction base="xs:positiveInteger">
+							<xs:totalDigits value="10"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
 </xs:schema>
