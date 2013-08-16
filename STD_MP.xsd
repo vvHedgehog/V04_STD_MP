@@ -266,15 +266,11 @@
 												<xs:documentation>Сведения об измененных земельных участках и их частях</xs:documentation>
 											</xs:annotation>
 										</xs:element>
-										<xs:element name="SpecifyRelatedParcel" minOccurs="0" maxOccurs="unbounded">
+										<!--Раньше этот элемент был расшитением (extension) типа tSpecifyRelatedParcel, но ничего нового не добавлял. Генератор класса создавал наследника, у которого ничего своего нет-->
+										<xs:element name="SpecifyRelatedParcel" type="tSpecifyRelatedParcel" minOccurs="0" maxOccurs="unbounded">
 											<xs:annotation>
 												<xs:documentation>Уточнение границ смежных участков</xs:documentation>
 											</xs:annotation>
-											<xs:complexType>
-												<xs:complexContent>
-													<xs:extension base="tSpecifyRelatedParcel"/>
-												</xs:complexContent>
-											</xs:complexType>
 										</xs:element>
 									</xs:sequence>
 									<xs:attribute name="Method" type="dMethod" use="required">
