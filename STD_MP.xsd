@@ -1279,24 +1279,10 @@
 				</xs:annotation>
 			</xs:element>
 			<xs:choice>
-				<xs:element name="Entity_Spatial">
+				<xs:element name="Entity_Spatial" type="tEntity_Spatial_without_Borders">
 					<xs:annotation>
 						<xs:documentation>Описание местоположения границ</xs:documentation>
 					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="Spatial_Element" type="tSPATIAL_ELEMENT_OLD_NEW" maxOccurs="unbounded">
-								<xs:annotation>
-									<xs:documentation>Элемент контура</xs:documentation>
-								</xs:annotation>
-							</xs:element>
-						</xs:sequence>
-						<xs:attribute name="Ent_Sys" type="xs:IDREF">
-							<xs:annotation>
-								<xs:documentation>Ссылка на систему координат</xs:documentation>
-							</xs:annotation>
-						</xs:attribute>
-					</xs:complexType>
 				</xs:element>
 				<xs:element name="Contours">
 					<xs:annotation>
@@ -1315,24 +1301,10 @@
 												<xs:documentation>Площадь контура части</xs:documentation>
 											</xs:annotation>
 										</xs:element>
-										<xs:element name="Entity_Spatial">
+										<xs:element name="Entity_Spatial" type="tEntity_Spatial_without_Borders">
 											<xs:annotation>
 												<xs:documentation>Описание местоположения границ</xs:documentation>
 											</xs:annotation>
-											<xs:complexType>
-												<xs:sequence>
-													<xs:element name="Spatial_Element" type="tSPATIAL_ELEMENT_OLD_NEW" maxOccurs="unbounded">
-														<xs:annotation>
-															<xs:documentation>Элемент контура</xs:documentation>
-														</xs:annotation>
-													</xs:element>
-												</xs:sequence>
-												<xs:attribute name="Ent_Sys" type="xs:IDREF">
-													<xs:annotation>
-														<xs:documentation>Ссылка на систему координат</xs:documentation>
-													</xs:annotation>
-												</xs:attribute>
-											</xs:complexType>
 										</xs:element>
 									</xs:sequence>
 									<xs:attribute name="Number" use="required">
@@ -1406,24 +1378,10 @@
 												<xs:documentation>Площадь контура части</xs:documentation>
 											</xs:annotation>
 										</xs:element>
-										<xs:element name="Entity_Spatial">
+										<xs:element name="Entity_Spatial" type="tEntity_Spatial_without_Borders">
 											<xs:annotation>
 												<xs:documentation>Описание местоположения границ</xs:documentation>
 											</xs:annotation>
-											<xs:complexType>
-												<xs:sequence>
-													<xs:element name="Spatial_Element" type="tSPATIAL_ELEMENT_OLD_NEW" maxOccurs="unbounded">
-														<xs:annotation>
-															<xs:documentation>Элемент контура</xs:documentation>
-														</xs:annotation>
-													</xs:element>
-												</xs:sequence>
-												<xs:attribute name="Ent_Sys" type="xs:IDREF">
-													<xs:annotation>
-														<xs:documentation>Ссылка на систему координат</xs:documentation>
-													</xs:annotation>
-												</xs:attribute>
-											</xs:complexType>
 										</xs:element>
 									</xs:sequence>
 									<xs:attribute name="Number" use="required">
@@ -1554,24 +1512,10 @@
 								</xs:annotation>
 								<xs:complexType>
 									<xs:choice>
-										<xs:element name="Entity_Spatial">
+										<xs:element name="Entity_Spatial" type="tEntity_Spatial_without_Borders">
 											<xs:annotation>
 												<xs:documentation>Описание местоположения границ</xs:documentation>
 											</xs:annotation>
-											<xs:complexType>
-												<xs:sequence>
-													<xs:element name="Spatial_Element" type="tSPATIAL_ELEMENT_OLD_NEW" maxOccurs="unbounded">
-														<xs:annotation>
-															<xs:documentation>Элемент контура</xs:documentation>
-														</xs:annotation>
-													</xs:element>
-												</xs:sequence>
-												<xs:attribute name="Ent_Sys" type="xs:IDREF">
-													<xs:annotation>
-														<xs:documentation>Ссылка на систему координат</xs:documentation>
-													</xs:annotation>
-												</xs:attribute>
-											</xs:complexType>
 										</xs:element>
 										<xs:element name="Contours">
 											<xs:annotation>
@@ -1585,24 +1529,10 @@
 														</xs:annotation>
 														<xs:complexType>
 															<xs:sequence>
-																<xs:element name="Entity_Spatial">
+																<xs:element name="Entity_Spatial" type="tEntity_Spatial_without_Borders">
 																	<xs:annotation>
 																		<xs:documentation>Описание местоположения границ</xs:documentation>
 																	</xs:annotation>
-																	<xs:complexType>
-																		<xs:sequence>
-																			<xs:element name="Spatial_Element" type="tSPATIAL_ELEMENT_OLD_NEW" maxOccurs="unbounded">
-																				<xs:annotation>
-																					<xs:documentation>Элемент контура</xs:documentation>
-																				</xs:annotation>
-																			</xs:element>
-																		</xs:sequence>
-																		<xs:attribute name="Ent_Sys" type="xs:IDREF">
-																			<xs:annotation>
-																				<xs:documentation>Ссылка на систему координат</xs:documentation>
-																			</xs:annotation>
-																		</xs:attribute>
-																	</xs:complexType>
 																</xs:element>
 															</xs:sequence>
 															<xs:attribute name="Number" use="required">
@@ -2159,42 +2089,33 @@
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
+	
+	<!--Элемент изменён: теперь он наследник tEntity_Spatial_without_Borders, структура элемента сохранилась-->
 	<xs:element name="Entity_Spatial">
 		<xs:annotation>
 			<xs:documentation>Описание местоположения границ</xs:documentation>
 		</xs:annotation>
 		<xs:complexType>
-			<xs:sequence>
-				<xs:element name="Spatial_Element" type="tSPATIAL_ELEMENT_OLD_NEW" maxOccurs="unbounded">
-					<xs:annotation>
-						<xs:documentation>Элемент контура</xs:documentation>
-					</xs:annotation>
-				</xs:element>
-				<xs:element name="Borders" minOccurs="0">
-					<xs:annotation>
-						<xs:documentation>Граница участка</xs:documentation>
-					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="Border" maxOccurs="unbounded">
-								<xs:annotation>
-									<xs:documentation>Описание границы</xs:documentation>
-								</xs:annotation>
-								<xs:complexType>
-									<xs:complexContent>
-										<xs:extension base="tBorder"/>
-									</xs:complexContent>
-								</xs:complexType>
-							</xs:element>
-						</xs:sequence>
-					</xs:complexType>
-				</xs:element>
-			</xs:sequence>
-			<xs:attribute name="Ent_Sys" type="xs:IDREF">
-				<xs:annotation>
-					<xs:documentation>Ссылка на систему координат</xs:documentation>
-				</xs:annotation>
-			</xs:attribute>
+			<xs:complexContent>
+				<xs:extension base="tEntity_Spatial_without_Borders">
+					<xs:sequence>
+						<xs:element name="Borders" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Граница участка</xs:documentation>
+							</xs:annotation>
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="Border" type="tBorder" maxOccurs="unbounded">
+										<xs:annotation>
+											<xs:documentation>Описание границы</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
 		</xs:complexType>
 	</xs:element>
 	<xs:complexType name="tSPATIAL_ELEMENT_OLD_NEW">
@@ -2648,6 +2569,25 @@
 				</xs:annotation>
 			</xs:element>
 		</xs:sequence>
+	</xs:complexType>
+
+	<!--Вынесен тип tEntity_Spatial_without_Borders - пространственная сущность без описания границ-->
+	<xs:complexType name="tEntity_Spatial_without_Borders">
+		<xs:annotation>
+			<xs:documentation>Описание местоположения границ</xs:documentation>
+		</xs:annotation>
+			<xs:sequence>
+				<xs:element name="Spatial_Element" type="tSPATIAL_ELEMENT_OLD_NEW" maxOccurs="unbounded">
+					<xs:annotation>
+						<xs:documentation>Элемент контура</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="Ent_Sys" type="xs:IDREF">
+				<xs:annotation>
+					<xs:documentation>Ссылка на систему координат</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
 	</xs:complexType>
 
 </xs:schema>
