@@ -910,29 +910,10 @@
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Area">
+									<xs:element name="Area" type="tArea_without_Innccuracy">
 										<xs:annotation>
 											<xs:documentation>Площадь</xs:documentation>
 										</xs:annotation>
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="Area">
-													<xs:annotation>
-														<xs:documentation>Значение площади</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:positiveInteger">
-															<xs:totalDigits value="20"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element name="Unit" type="dUnit" fixed="055">
-													<xs:annotation>
-														<xs:documentation>Единица измерения</xs:documentation>
-													</xs:annotation>
-												</xs:element>
-											</xs:sequence>
-										</xs:complexType>
 									</xs:element>
 									<xs:element name="Encumbrance" type="tEncumbrance">
 										<xs:annotation>
@@ -1100,29 +1081,10 @@
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Area">
+									<xs:element name="Area" type="tArea_without_Innccuracy">
 										<xs:annotation>
 											<xs:documentation>Площадь</xs:documentation>
 										</xs:annotation>
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="Area">
-													<xs:annotation>
-														<xs:documentation>Значение площади</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:positiveInteger">
-															<xs:totalDigits value="20"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element name="Unit" type="dUnit" fixed="055">
-													<xs:annotation>
-														<xs:documentation>Единица измерения</xs:documentation>
-													</xs:annotation>
-												</xs:element>
-											</xs:sequence>
-										</xs:complexType>
 									</xs:element>
 									<xs:element name="Encumbrance" type="tEncumbrance">
 										<xs:annotation>
@@ -1307,29 +1269,10 @@
 							</xs:annotation>
 							<xs:complexType>
 								<xs:sequence>
-									<xs:element name="Area">
+									<xs:element name="Area" type="tArea_without_Innccuracy">
 										<xs:annotation>
 											<xs:documentation>Площадь</xs:documentation>
 										</xs:annotation>
-										<xs:complexType>
-											<xs:sequence>
-												<xs:element name="Area">
-													<xs:annotation>
-														<xs:documentation>Значение площади</xs:documentation>
-													</xs:annotation>
-													<xs:simpleType>
-														<xs:restriction base="xs:positiveInteger">
-															<xs:totalDigits value="20"/>
-														</xs:restriction>
-													</xs:simpleType>
-												</xs:element>
-												<xs:element name="Unit" type="dUnit" fixed="055">
-													<xs:annotation>
-														<xs:documentation>Единица измерения</xs:documentation>
-													</xs:annotation>
-												</xs:element>
-											</xs:sequence>
-										</xs:complexType>
 									</xs:element>
 									<xs:element name="Encumbrance" type="tEncumbrance">
 										<xs:annotation>
@@ -2308,7 +2251,7 @@
 	</xs:complexType>
 	<xs:complexType name="tArea_without_Innccuracy">
 		<xs:annotation>
-			<xs:documentation>Сведения о предельных минимальных и максимальных размерах ЗУ</xs:documentation>
+			<xs:documentation>Сведения о существующей (неизменяемой) площади</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="Area">
