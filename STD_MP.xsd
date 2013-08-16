@@ -510,105 +510,35 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
-				<xs:element name="Survey" minOccurs="0">
+				<xs:element name="Survey" type="tAppliedFiles" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Сведения о выполненных измерениях и расчетах</xs:documentation>
 					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="AppliedFile" maxOccurs="unbounded">
-								<xs:annotation>
-									<xs:documentation>Приложенные файлы с образами</xs:documentation>
-								</xs:annotation>
-								<xs:complexType>
-									<xs:complexContent>
-										<xs:extension base="tAppliedFile"/>
-									</xs:complexContent>
-								</xs:complexType>
-							</xs:element>
-						</xs:sequence>
-					</xs:complexType>
 				</xs:element>
 				<xs:element name="Conclusion" type="xs:string" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Заключение кадастрового инженера</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="Scheme_Geodesic_Plotting" minOccurs="0">
+				<xs:element name="Scheme_Geodesic_Plotting" type="tAppliedFiles" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Схема геодезических построений</xs:documentation>
 					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="AppliedFile" maxOccurs="unbounded">
-								<xs:annotation>
-									<xs:documentation>Приложенные файлы с образами</xs:documentation>
-								</xs:annotation>
-								<xs:complexType>
-									<xs:complexContent>
-										<xs:extension base="tAppliedFile"/>
-									</xs:complexContent>
-								</xs:complexType>
-							</xs:element>
-						</xs:sequence>
-					</xs:complexType>
 				</xs:element>
-				<xs:element name="Scheme_Disposition_Parcels" minOccurs="0">
+				<xs:element name="Scheme_Disposition_Parcels" type="tAppliedFiles" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Схема расположения земельных участков</xs:documentation>
 					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="AppliedFile" maxOccurs="unbounded">
-								<xs:annotation>
-									<xs:documentation>Приложенные файлы с образами</xs:documentation>
-								</xs:annotation>
-								<xs:complexType>
-									<xs:complexContent>
-										<xs:extension base="tAppliedFile"/>
-									</xs:complexContent>
-								</xs:complexType>
-							</xs:element>
-						</xs:sequence>
-					</xs:complexType>
 				</xs:element>
-				<xs:element name="Diagram_Parcels_SubParcels">
+				<xs:element name="Diagram_Parcels_SubParcels" type="tAppliedFiles">
 					<xs:annotation>
 						<xs:documentation>Чертеж земельных участков и их частей</xs:documentation>
 					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="AppliedFile" maxOccurs="unbounded">
-								<xs:annotation>
-									<xs:documentation>Приложенные файлы с образами</xs:documentation>
-								</xs:annotation>
-								<xs:complexType>
-									<xs:complexContent>
-										<xs:extension base="tAppliedFile"/>
-									</xs:complexContent>
-								</xs:complexType>
-							</xs:element>
-						</xs:sequence>
-					</xs:complexType>
 				</xs:element>
-				<xs:element name="Agreement_Document" minOccurs="0">
+				<xs:element name="Agreement_Document" type="tAppliedFiles" minOccurs="0">
 					<xs:annotation>
 						<xs:documentation>Акт согласования местоположения границы земельного участка</xs:documentation>
 					</xs:annotation>
-					<xs:complexType>
-						<xs:sequence>
-							<xs:element name="AppliedFile" maxOccurs="unbounded">
-								<xs:annotation>
-									<xs:documentation>Приложенные файлы с образами</xs:documentation>
-								</xs:annotation>
-								<xs:complexType>
-									<xs:complexContent>
-										<xs:extension base="tAppliedFile"/>
-									</xs:complexContent>
-								</xs:complexType>
-							</xs:element>
-						</xs:sequence>
-					</xs:complexType>
 				</xs:element>
 				<xs:element name="NodalPointSchemes" minOccurs="0">
 					<xs:annotation>
@@ -621,28 +551,20 @@
 									<xs:documentation>Абрис узловых точек границ земельных участков</xs:documentation>
 								</xs:annotation>
 								<xs:complexType>
-									<xs:sequence>
-										<xs:element name="AppliedFile" maxOccurs="unbounded">
-											<xs:annotation>
-												<xs:documentation>Приложенные файлы с образами</xs:documentation>
-											</xs:annotation>
-											<xs:complexType>
-												<xs:complexContent>
-													<xs:extension base="tAppliedFile"/>
-												</xs:complexContent>
-											</xs:complexType>
-										</xs:element>
-									</xs:sequence>
-									<xs:attribute name="Definition">
-										<xs:annotation>
-											<xs:documentation>Обозначение точки</xs:documentation>
-										</xs:annotation>
-										<xs:simpleType>
-											<xs:restriction base="xs:string">
-												<xs:maxLength value="50"/>
-											</xs:restriction>
-										</xs:simpleType>
-									</xs:attribute>
+									<xs:complexContent>
+										<xs:extension base="tAppliedFiles">
+											<xs:attribute name="Definition">
+												<xs:annotation>
+													<xs:documentation>Обозначение точки</xs:documentation>
+												</xs:annotation>
+												<xs:simpleType>
+													<xs:restriction base="xs:string">
+														<xs:maxLength value="50"/>
+													</xs:restriction>
+												</xs:simpleType>
+											</xs:attribute>
+										</xs:extension>
+									</xs:complexContent>
 								</xs:complexType>
 							</xs:element>
 						</xs:sequence>
@@ -2713,4 +2635,19 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
+
+	<!--Вынесен тип tAppliedFiles, часто используется. Возможно потом стоит вынести в схему R04_Document.xsd-->
+	<xs:complexType name="tAppliedFiles">
+		<xs:annotation>
+			<xs:documentation>Приложенные файлы с образами</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="AppliedFile" type="tAppliedFile" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Приложенные файлы с образами</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
 </xs:schema>
