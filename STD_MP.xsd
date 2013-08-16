@@ -327,47 +327,10 @@
 					</xs:annotation>
 					<xs:complexType>
 						<xs:sequence>
-							<xs:element name="Documents" minOccurs="0">
+							<xs:element name="Documents" type="tMapDrawingDocuments" minOccurs="0">
 								<xs:annotation>
 									<xs:documentation>Перечень документов, на основании которых подготовлен межевой план, и использованных при подготовке межевого плана</xs:documentation>
 								</xs:annotation>
-								<xs:complexType>
-									<xs:sequence>
-										<xs:element name="Document" maxOccurs="unbounded">
-											<xs:annotation>
-												<xs:documentation>Описание документа</xs:documentation>
-											</xs:annotation>
-											<xs:complexType>
-												<xs:complexContent>
-													<xs:extension base="tDocument">
-														<xs:sequence>
-															<xs:element name="Scale" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Масштаб соответствующего картографического произведения</xs:documentation>
-																</xs:annotation>
-																<xs:simpleType>
-																	<xs:restriction base="xs:string">
-																		<xs:maxLength value="255"/>
-																	</xs:restriction>
-																</xs:simpleType>
-															</xs:element>
-															<xs:element name="Date_Create" type="xs:date" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Дата создания картографического произведения</xs:documentation>
-																</xs:annotation>
-															</xs:element>
-															<xs:element name="Date_Update" type="xs:date" minOccurs="0">
-																<xs:annotation>
-																	<xs:documentation>Дата последнего обновления картографического произведения</xs:documentation>
-																</xs:annotation>
-															</xs:element>
-														</xs:sequence>
-													</xs:extension>
-												</xs:complexContent>
-											</xs:complexType>
-										</xs:element>
-									</xs:sequence>
-								</xs:complexType>
 							</xs:element>
 							<xs:element name="Geodesic_Bases" minOccurs="0">
 								<xs:annotation>
@@ -2101,19 +2064,10 @@
 					<xs:documentation>Иное</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Documents" minOccurs="0">
+			<xs:element name="Documents" type="tDocuments" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Документы - основания для внесения сведений</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="Document" type="tDocument" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation>Документ - основание для внесения сведений</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -2200,19 +2154,10 @@
 																		<xs:documentation>Контактный адрес правообладателя</xs:documentation>
 																	</xs:annotation>
 																</xs:element>
-																<xs:element name="Documents" minOccurs="0">
+																<xs:element name="Documents" type="tDocuments" minOccurs="0">
 																	<xs:annotation>
 																		<xs:documentation>Ревизиты документов, подтверждающих права на земельный участок</xs:documentation>
 																	</xs:annotation>
-																	<xs:complexType>
-																		<xs:sequence>
-																			<xs:element name="Document" type="tDocument" maxOccurs="unbounded">
-																				<xs:annotation>
-																					<xs:documentation>Документ, подтверждающий право на ЗУ</xs:documentation>
-																				</xs:annotation>
-																			</xs:element>
-																		</xs:sequence>
-																	</xs:complexType>
 																</xs:element>
 															</xs:sequence>
 														</xs:complexType>
@@ -2538,19 +2483,10 @@
 					<xs:documentation>Кадастровый номер ЗУ, в пользу которого установлен сервитут</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Documents" minOccurs="0">
+			<xs:element name="Documents" type="tDocuments" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Документы, на основании которых возникает обременение</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="Document" type="tDocument" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation>Документ - основание для внесения сведений</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
@@ -2910,7 +2846,7 @@
 			</xs:complexContent>
 	</xs:complexType>
 
-	<!-- Созданы типы для Номеров ЗУ, КК, и ОКС; в типах предусмотрена валидация по шаблону -->
+	<!-- Вынесены типы для Номеров ЗУ, КК, и ОКС; в типах предусмотрена валидация по шаблону -->
 	<xs:simpleType name="tZUCadastralNumber">
 		<xs:annotation>
 			<xs:documentation>Кадастровый номер земельного участка</xs:documentation>
@@ -2942,4 +2878,65 @@
 		</xs:restriction>
 	</xs:simpleType>
 
+	<!--Вынесен тип tDocuments - список документов, часто используется. Возможно потом стоит вынести в схему R04_Document.xsd-->
+	<xs:complexType name="tDocuments">
+		<xs:annotation>
+			<xs:documentation>Список документов</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Document" type="tDocument" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Сведения о документе</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--Вынесен тип tMapDrawingDocument - картографического произведение-->
+	<!--Наименование типа нужно изменить? Я просто не знаю соответсующего устоявшегося английского термина-->
+	<xs:complexType name="tMapDrawingDocument">
+		<xs:annotation>
+			<xs:documentation>Описание документа - картографического произведения</xs:documentation>
+		</xs:annotation>
+			<xs:complexContent>
+				<xs:extension base="tDocument">
+					<xs:sequence>
+						<xs:element name="Scale" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Масштаб соответствующего картографического произведения</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:maxLength value="255"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Date_Create" type="xs:date" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Дата создания картографического произведения</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Date_Update" type="xs:date" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Дата последнего обновления картографического произведения</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+	</xs:complexType>
+
+	<!--В результате переработок коснувшихся документов, вынесен тип tMapDrawingDocuments, хоть и встречается один раз. Возможно спорное решение-->
+	<xs:complexType name="tMapDrawingDocuments">
+		<xs:annotation>
+			<xs:documentation>Список картографических произведений</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Document" type="tMapDrawingDocument" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Сведения о картографическом произведении</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
 </xs:schema>
