@@ -685,24 +685,10 @@
 					<xs:documentation>Сведения о земельных участках, посредством которых обеспечивается доступ</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Inner_CadastralNumbers" minOccurs="0">
+			<xs:element name="Inner_CadastralNumbers" type="tInner_CadastralNumbers" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Кадастровые или иные номера зданий, сооружений, объектов незавершенного строительства, расположенных на земельном участке</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="CadastralNumber" type="tOKSCadastralNumber" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation>Кадастровый номер</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="Number" type="xs:string" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation>Иной номер</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 			<xs:element name="Area" type="tAreaNew">
 				<xs:annotation>
@@ -860,24 +846,10 @@
 					<xs:documentation>Сведения о земельных участках, посредством которых обеспечивается доступ</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Inner_CadastralNumbers" minOccurs="0">
+			<xs:element name="Inner_CadastralNumbers" type="tInner_CadastralNumbers" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Кадастровые или иные номера зданий, сооружений, объектов незавершенного строительства, расположенных на земельном участке</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="CadastralNumber" type="tOKSCadastralNumber" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation>Кадастровый номер</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="Number" type="xs:string" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation>Иной номер</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 			<xs:element name="SubParcels" minOccurs="0">
 				<xs:annotation>
@@ -1064,24 +1036,10 @@
 					<xs:documentation>Номер кадастрового квартала</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Inner_CadastralNumbers" minOccurs="0">
+			<xs:element name="Inner_CadastralNumbers" type="tInner_CadastralNumbers" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Кадастровые или иные номера зданий, сооружений, объектов незавершенного строительства, расположенных на земельном участке</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="CadastralNumber" type="tOKSCadastralNumber" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation>Кадастровый номер</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="Number" type="xs:string" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation>Иной номер</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 			<xs:element name="Area" type="tAreaNew">
 				<xs:annotation>
@@ -1285,24 +1243,10 @@
 					<xs:documentation>Номер кадастрового квартала</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="Inner_CadastralNumbers" minOccurs="0">
+			<xs:element name="Inner_CadastralNumbers" type="tInner_CadastralNumbers" minOccurs="0">
 				<xs:annotation>
 					<xs:documentation>Кадастровые или иные номера зданий, сооружений, объектов незавершенного строительства, расположенных на земельном участке</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="CadastralNumber" type="tOKSCadastralNumber" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation>Кадастровый номер</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-						<xs:element name="Number" type="xs:string" minOccurs="0" maxOccurs="unbounded">
-							<xs:annotation>
-								<xs:documentation>Иной номер</xs:documentation>
-							</xs:annotation>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
 			</xs:element>
 			<xs:element name="Area" type="tAreaNew">
 				<xs:annotation>
@@ -2926,4 +2870,24 @@
 			</xs:element>
 		</xs:sequence>
 	</xs:complexType>
+
+	<!--Вынесен тип tInner_CadastralNumbers - список ОКС на ЗУ, часто используется-->
+	<xs:complexType name="tInner_CadastralNumbers">
+		<xs:annotation>
+			<xs:documentation>Кадастровые или иные номера зданий, сооружений, объектов незавершенного строительства, расположенных на земельном участке</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="CadastralNumber" type="tOKSCadastralNumber" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Кадастровый номер</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Number" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Иной номер</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
 </xs:schema>
